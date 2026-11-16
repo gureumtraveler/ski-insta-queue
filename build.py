@@ -143,8 +143,7 @@ add('2026-11-19', 'carousel', ['02/1.jpg', '02/2.jpg'],
 d = P('03')
 photo_slide('20161210_200400_HDR.jpg', f'{d}/1.jpg')
 photo_slide('20161210_200313_HDR.jpg', f'{d}/2.jpg')
-photo_slide('20161210_200313_HDR-EFFECTS.jpg', f'{d}/3.jpg')
-add('2026-11-20', 'carousel', ['03/1.jpg', '03/2.jpg', '03/3.jpg'],
+add('2026-11-20', 'carousel', ['03/1.jpg', '03/2.jpg'],
  '조명 아래 야간 스키 🌙\n\n해가 지면 슬로프 분위기가 완전히 달라집니다.\n제설기 안개 사이로 조명이 번지는 밤 슬로프.\n\n야간파 vs 주간파, 여러분은?\n\n' + TAGS + ' #야간스키 #나이트스키 #퇴근후스키')
 
 # 4 info: FIS rules
