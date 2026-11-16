@@ -46,7 +46,7 @@ def gradient(im, top=0.0, bottom=0.82, start=0.35):
 
 def header(d):
     d.text((60, 58), '구름여행자 · SKI LOG', font=font(KR_BD, 30), fill=(255, 255, 255))
-    d.text((W - 60, 58), '@seokwoo.cloudtraveler', font=font(KR_R, 26), fill=(220, 230, 240), anchor='ra')
+    d.text((W - 60, 58), '@gureumtraveler', font=font(KR_R, 26), fill=(220, 230, 240), anchor='ra')
 
 def wrap(d, text, f, maxw):
     lines = []
@@ -258,6 +258,6 @@ title_card('DSCN1176-deviate.jpg', f'{d}/1.jpg', 'DECEMBER', '올겨울, 어디�
 add('2026-12-01', 'image', ['14/1.jpg'],
  '12월, 진짜 시즌 시작입니다 ❄️\n\n올겨울 가장 가고 싶은 스키장은 어디인가요?\n국내든 해외든 댓글로 알려주시면\n다녀온 곳은 제가 아는 만큼 팁 정리해 드릴게요.\n\n' + TAGS + ' #스키시즌 #12월 #스키여행 #스키장추천')
 
-json.dump({'account': 'seokwoo.cloudtraveler', 'base_url': 'https://raw.githubusercontent.com/gureumtraveler/ski-insta-queue/main/posts/',
+json.dump({'account': 'gureumtraveler', 'base_url': 'https://raw.githubusercontent.com/gureumtraveler/ski-insta-queue/main/posts/',
            'post_time_kst': '19:00', 'posts': posts}, open('/home/claude/ski-insta-queue/queue.json', 'w'), ensure_ascii=False, indent=1)
 print(len(posts))
