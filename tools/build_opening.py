@@ -38,7 +38,7 @@ def bg(src, blur=14, bright=0.36):
 
 def header(d, page=None):
     d.text((60, 58), '구름여행자 · SKI LOG', font=font('BD', 30), fill=WHITE)
-    d.text((W - 60, 58), '@seokwoo.cloudtraveler', font=font('R', 26), fill=(220, 230, 240), anchor='ra')
+    d.text((W - 60, 58), '@gureumtraveler', font=font('R', 26), fill=(220, 230, 240), anchor='ra')
 
 def footer(d, text):
     d.text((60, H - 70), text, font=font('R', 26), fill=MUTED)
