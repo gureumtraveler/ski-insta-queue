@@ -260,7 +260,7 @@ ep('2026-11-17', SKI, 1, [
 ], '초보 스키어에서 스키 매니아로 EP.01 ⛷️\n첫날, 서는 법부터\n\n렌탈 장비 맞추기와 기본 자세만 제대로 잡아도 첫 시즌이 달라집니다.\n뒤로 앉지 말고, 정강이로 부츠 앞을 누르세요.\n\n홀수 날은 스키, 짝수 날은 보드 — 매일 한 단계씩 같이 올라가요.\n저장해두고 슬로프에서 다시 보기 📌\n\n' + SKI_TAGS)
 
 # BOARD EP01 --------------------------------------------------------
-ep('2026-11-18', BRD, 1, [
+ep('2026-11-17', BRD, 1, [
     lambda: s_cover(BRD, 1, '레귤러? 구피?\n내 스탠스 찾기', '어느 발이 앞인지부터 정해야 시작됩니다', 'DSCN1259-deviate.jpg'),
     lambda: s_list(BRD, '어느 발이 앞일까', [
         ('R', '레귤러 = 왼발 앞', '보드를 탈 때 왼발이 진행 방향 쪽.'),
@@ -298,7 +298,7 @@ ep('2026-11-19', SKI, 2, [
 ], '초보 스키어에서 스키 매니아로 EP.02 ⛷️\n잘 넘어지고, 빨리 일어나기\n\n넘어질 땐 옆으로, 엉덩이부터.\n일어날 땐 스키를 경사에 가로로 놓고 산 쪽에서.\n오르막은 사이드 스텝이나 헤링본으로.\n\n같이 스키 시작한 친구에게 공유해 주세요 🙌\n\n' + SKI_TAGS)
 
 # BOARD EP02 --------------------------------------------------------
-ep('2026-11-20', BRD, 2, [
+ep('2026-11-18', BRD, 2, [
     lambda: s_cover(BRD, 2, '한 발로 밀고,\n리프트에서 내리기', '슬로프보다 리프트 하차가 먼저 무섭습니다', 'DSCN1195-deviate (1).jpg'),
     lambda: s_list(BRD, '스케이팅 (한 발 이동)', [
         ('01', '앞발만 바인딩', '뒷발은 풀고 앞발만 고정. 리프트 줄 설 때도 이 상태입니다.'),
@@ -333,7 +333,7 @@ ep('2026-11-21', SKI, 3, [
 ], '초보 스키어에서 스키 매니아로 EP.03 ⛷️\n피자로 멈추기\n\n앞코는 모으고 뒤꿈치를 밀어내 삼각형.\n좁게 벌리면 감속, 넓게 벌리면 정지.\n안 멈추면 십중팔구 뒤로 앉은 겁니다.\n\n저장해두고 첫 슬로프 전에 한 번 더 📌\n\n' + SKI_TAGS)
 
 # BOARD EP03 --------------------------------------------------------
-ep('2026-11-22', BRD, 3, [
+ep('2026-11-20', BRD, 3, [
     lambda: s_cover(BRD, 3, '힐사이드 낙엽', '보드 첫 번째 생존 기술 — 옆으로 미끄러져 내려오기', 'DSCN1251-deviate.jpg'),
     lambda: s_diagram(BRD, '사이드 슬립', diag_sideslip,
         '경사 아래를 바라보고, 보드는 경사에 가로로. 뒤꿈치 쪽 날로 버티면서 발끝을 살짝 들었다 놨다 하며 내려옵니다.',
@@ -371,6 +371,7 @@ ep('2026-11-23', SKI, 4, [
 ], '초보 스키어에서 스키 매니아로 EP.04 ⛷️\n피자로 방향 바꾸기 (플루크 턴)\n\n오른쪽으로 가려면 왼발, 왼쪽으로 가려면 오른발.\n시선 먼저, 그다음 바깥발.\n턴을 끝까지 이어 경사를 가로지르면 멈출 수도 있어요.\n\n저장해두고 다음 주 슬로프에서 📌\n\n' + SKI_TAGS)
 
 # ---------- build ----------
+POSTED = {('ski', 1): '17965422462252404', ('board', 1): '18118139267589166'}
 series = []
 for idx, (date, s, num, slides, caption) in enumerate(EPISODES, 1):
     folder = f's{idx:02d}'
@@ -384,6 +385,9 @@ for idx, (date, s, num, slides, caption) in enumerate(EPISODES, 1):
         p = f'{folder}/{i}.jpg'; im.save(OUT + p, 'JPEG', quality=90); files.append(p)
     series.append({'date': date, 'series': 'ski' if s is SKI else 'board', 'ep': num,
                    'type': 'carousel', 'files': files, 'caption': caption})
+    key = (series[-1]['series'], num)
+    if key in POSTED:
+        series[-1]['posted'] = True; series[-1]['media_id'] = POSTED[key]
 
 json.dump({'account': 'gureumtraveler',
            'base_url': 'https://raw.githubusercontent.com/gureumtraveler/ski-insta-queue/main/posts/',
