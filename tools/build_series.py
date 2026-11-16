@@ -215,19 +215,19 @@ def diag_stance_board(d, acc):
     d.text((540, 975), '덕 스탠스 예: +15° / -9°', font=font('R', 28), fill=SUB, anchor='ma')
 
 def diag_sideslip(d, acc):
-    # slope lines + board across the fall line
     for i in range(6):
         d.line((120, 360 + i * 110, 960, 360 + i * 110), fill=(80, 95, 110), width=2)
     arrow(d, 960, 380, 960, 980, (120, 135, 150), w=4)
     d.text((940, 990), '경사 아래', font=font('R', 26), fill=MUTED, anchor='ra')
+    d.text((520, 330), '앞발/뒷발 체중으로 좌우 이동 = 낙엽', font=font('R', 28), fill=SUB, anchor='ma')
+    arrow(d, 360, 400, 200, 400, acc); arrow(d, 680, 400, 840, 400, acc)
     board_shape(d, 520, 560, L=600, w=150)
-    d.line((220, 635, 820, 635), fill=acc, width=10)
-    d.text((520, 670), '힐엣지(뒤꿈치 쪽 날)로 버티기', font=font('BD', 32), fill=acc, anchor='ma')
-    arrow(d, 520, 760, 520, 900, WHITE)
-    d.text((560, 820), '발끝 살짝 들면 미끄러짐 ↓', font=font('R', 30), fill=SUB)
+    d.line((240, 487, 800, 487), fill=acc, width=10)
+    d.text((520, 660), '산 쪽 날 = 힐엣지(뒤꿈치)로 버티기', font=font('BD', 32), fill=acc, anchor='ma')
+    d.text((520, 710), '몸은 경사 아래를 바라봄', font=font('R', 28), fill=SUB, anchor='ma')
+    arrow(d, 520, 780, 520, 920, WHITE)
+    d.text((560, 820), '발끝 살짝 들면 미끄러짐', font=font('R', 30), fill=SUB)
     d.text((560, 870), '뒤꿈치 누르면 멈춤', font=font('R', 30), fill=SUB)
-    arrow(d, 360, 470, 200, 470, acc); arrow(d, 680, 470, 840, 470, acc)
-    d.text((520, 430), '앞발/뒷발 체중으로 좌우 이동 = 낙엽', font=font('R', 28), fill=SUB, anchor='ma')
 
 # ---------- series definitions ----------
 SKI = {'label': '구름여행자 · SKI LAB', 'series': '초보 스키어에서 스키 매니아로', 'acc': SKI_ACC}
@@ -334,9 +334,9 @@ ep('2026-11-21', SKI, 3, [
 
 # BOARD EP03 --------------------------------------------------------
 ep('2026-11-20', BRD, 3, [
-    lambda: s_cover(BRD, 3, '힐사이드 낙엽', '보드 첫 번째 생존 기술 — 옆으로 미끄러져 내려오기', 'DSCN1251-deviate.jpg'),
+    lambda: s_cover(BRD, 3, '힐사이드 낙엽', '보드 첫 번째 생존 기술 — 옆으로 미끄러져 내려오기', 'DSCN1296-deviate (1).jpg'),
     lambda: s_diagram(BRD, '사이드 슬립', diag_sideslip,
-        '경사 아래를 바라보고, 보드는 경사에 가로로. 뒤꿈치 쪽 날로 버티면서 발끝을 살짝 들었다 놨다 하며 내려옵니다.',
+        '경사 아래를 바라보고, 보드는 경사에 가로로. 산 쪽에 있는 뒤꿈치 날로 버티면서 발끝을 살짝 들었다 놨다 하며 내려옵니다.',
         'DSCN1259-deviate.jpg', kicker='STEP 1 · 원리'),
     lambda: s_list(BRD, '자세 포인트', [
         ('01', '의자에 앉듯이', '무릎 굽히고 엉덩이는 낮게, 상체는 세우기. 허리만 숙이면 균형이 무너집니다.'),
